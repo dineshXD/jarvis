@@ -57,7 +57,7 @@ import type {
 // In Spring Boot, this would be:
 //   @Value("${api.url:http://localhost:8000}")
 //   private String apiUrl;
-const API_BASE = process.env.API_URL || "http://127.0.0.1:8000";
+const API_BASE = (process.env.API_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
 
 /**
  * Internal helper: Make an API request with error handling.
